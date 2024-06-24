@@ -7,6 +7,7 @@ In `Date.java` do the following:
 - Complete the `isValid` method so that it returns true if the given date is valid, other wise return false.
 - Complete the `toString` method so that it returns a string in the YYYY-MM-DD format if the given date is valid. Otherwise, return `"invalid"`. For example, `toString(2024, 07, 04)` returns `"2024-07-04`.
 - Complete the `monthString` method so that it returns a string that represents the given month in an abbreviated form, if the given month is valid. For example, `monthString(6)` returns `"JUN"`.
+
 In `DateTest.java` do the following in the `main` method:
 - Thoroughly test each method to verify that it works correctly.
 ## Submit
