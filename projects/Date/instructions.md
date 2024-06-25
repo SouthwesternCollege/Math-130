@@ -11,7 +11,7 @@ In `Date.java` do the following:
 In `DateTest.java` do the following in the `main` method:
 - Thoroughly test each method to verify that it works correctly. For example,
   -  `isValid(2024,13,40) == false`
-  -  `toString(2024,2,29).equals("2024-02-29")
+  -  `toString(2024,2,29).equals("2024-02-29")`
 ## Coding Standards
 1. Adhere to the specifications
 2. Use meaningful identifiers.
