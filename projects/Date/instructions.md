@@ -19,4 +19,5 @@ In `DateTest.java` do the following in the `main` method:
 4. Use JavaDoc to completely document your code. Include a description of your program and acknowledge yourself as the author using the `@author` tag.
 5. Any output should be user-friendly.
 6. Your code must be well-organized, easy to read, and properly formatted.
-
+## Submission
+Submit `Date.java` and `DateTest.java`
