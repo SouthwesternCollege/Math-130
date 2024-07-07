@@ -1,6 +1,6 @@
  
 
-# **Unit Deliverable #0 - Classes Review**
+# Project: Card
 
 Playing cards! Whether it's Spades, Conquian, Poker, or BlackJack, whether they're played at a BBQ or _carne asada_, what all of these card games have in common is the standard playing card. What a great example of **Abstraction**!
 
@@ -15,72 +15,154 @@ For this project, you are given `CardTester.java`, a tester class that contains 
 
 **The following are screenshots of the working tests for your reference, along with some additional notes:**
 
-Notice the difference between the output if there is no default constructor built vs. if there is. The screenshot below is when the default constructor is NOT built yet, only the `toString`. The `[]` (square brackets) are to indicate the start and end of the `toString` return value:
-![no default constructor screenshot](toStringNoDefault.png)
+Notice the difference between the output if there is no default constructor built vs. if there is. The screenshot below is when the default constructor is **NOT** built yet, only the `toString`. The `[]` (square brackets) are to indicate the start and end of the `toString` return value:
+```
+TESTING toString() METHOD:
+
+If no default constructor built, should get [0 ] and toString gives: [0 ]. Know why?
+Otherwise, the above should show the default value of: A ♥
+```
  
 
 Notice that the setter returns the appropriate boolean value, and that when the setter returns false there is no change since the last successful mutation:
-![setValue screenshot](setValue.png)
+```
+TESTING setValue() METHOD:
+
+setValue should have changed value only to 2: 2 ♥. Setter returned true
+setValue should have changed value only to 10: 10 ♥. Setter returned true
+setValue should have changed value only to J: J ♥. Setter returned true
+setValue should have changed value only to Q: Q ♥. Setter returned true
+setValue should have changed value only to K: K ♥. Setter returned true
+setValue should NOT have changed value from K: K ♥. Setter returned false
+setValue should NOT have changed value from K: K ♥. Setter returned false
+```
  
 
 Notice that the setter returns the appropriate boolean value, and that when the setter returns false there is no change since the last successful mutation:
-![setSuit screenshot](setSuit.png)
+```
+TESTING setSuit() METHOD:
 
+setSuit should have changed suit only to ♦: A ♦. Setter returned true
+setSuit should have changed suit only to ♣: A ♣. Setter returned true
+setSuit should have changed suit only to ♠: A ♠. Setter returned true
+setSuit should have changed suit only to ♥: A ♥. Setter returned true
+setSuit should NOT have changed suit from ♥: A ♥. Setter returned false
+setSuit should NOT have changed suit from ♥: A ♥. Setter returned false
+```
  
 
 Notice that the setter returns the appropriate boolean value, and that when the setter returns false there is no change since the last successful mutation:
-![setAll screenshot](setAll.png)
+```
+TESTING setAll() METHOD:
 
+setAll should have changed both to A ♦: A ♦. Setter returned true
+setAll should have changed both to 3 ♠: 3 ♠. Setter returned true
+setAll should have changed both to 4 ♥: 4 ♥. Setter returned true
+setAll should have changed both to 5 ♣: 5 ♣. Setter returned true
+setAll should NOT have changed suit/value from last valid test: 5 ♣. Setter returned false
+setAll should NOT have changed suit/value from last valid test: 5 ♣. Setter returned false
+setAll should NOT have changed suit/value from last valid test: 5 ♣. Setter returned false
+```
  
 
 Remember the `toString` test? Once you complete the default constructor (which is much easier once you've completed the `setAll` method), you can scroll back to the `toString` test and see the change. Now it actually shows the default value!
-![default constructor screenshot](toStringDefault.png)
 
- 
+ ```
+TESTING toString() METHOD:
+
+If no default constructor built, should get [0 ] and toString gives: [A ♥]. Know why?
+Otherwise, the above should show the default value of: A ♥
+```
 
 Full constructor test should create the following cards. To test the error scenario, uncomment the code as noted and your program should exit the program after printing an error message. Bad data should not be allowed in!
-![full constructor screenshot](fullConstructor.png)
- 
+```
+Full constructor should have built card 6 ♦: 6 ♦
+Full constructor should have built card 7 ♥: 7 ♥
+``` 
 
-Copy constructor should work similarly as well. To test the error scenario, uncomment the code as noted and your program should exit the program after printing an error message. Bad data should not be allowed in! See if you can answer the question (hint: check the CS111 PDF on copy constructors for some help):
-![copy constructor screenshot](copyConstructor.png)
- 
+Copy constructor should work similarly as well. To test the error scenario, uncomment the code as noted and your program should exit the program after printing an error message. Bad data should not be allowed in! See if you can answer the question.
+```
+Copy constructor should have built card 5 ♠: 5 ♠
+Look the same? That's a good start! Need to make sure it's a deep copy!
+Changed original object to 7 ♦. Did copy change too? 5 ♠
+Copy should have stayed as 5 ♠ to be a deep copy!
+Why was this deep copy test of the instance variables unnecessary for this class?
+``` 
 
 Getter should simply return the unicode char of the suit (assuming default constructor is working):
-![getSuit screenshot](getSuit.png)
-
+```
+getSuit should be default suit ♥: ♥
+Changed suit of card, getSuit should be ♠: ♠
+```
  
 
 Getter should simply return the integer value (not A but 1) of the card (assuming default constructor is working):
-![getValue screenshot](getValue.png)
-
+```
+getValue should be default value 1: 1
+Changed value of card, getValue should be 8: 8
+```
  
 
 This version of the getter for value should work appropriately for the letters that are on the printed card:
-![getPrintValue screenshot](getPrintValue.png)
-
+```
+getValue should be default value 1: 1
+Changed value of card, getValue should be 8: 8
+```
  
 
 Notice all combinations of mismatching data are tested:
-![equals screenshot](equals.png)
- 
+```
+TESTING equals() METHOD:
+
+Testing both instance variables don't match:
+Are card 8 ♥ and card 5 ♣ the same? false
+Testing only values don't match:
+Are card 8 ♥ and card 5 ♥ the same? false
+Testing only suits don't match:
+Are card 8 ♥ and card 8 ♦ the same? false
+Testing both instance variables match:
+Are card 8 ♥ and card 8 ♥ the same? true
+```
 
 **Driver screenshot example:**
 
 For the driver, you can simply print the contents of the array by looping it and printing the `toString` method call. As long as you print all of the cards (each suit/value together) you can print them in whatever order you'd like.
 
 Here's one example that's slightly more challenging, printing the cards in 13 per row:
-![driver screenshot](driver.png)
- 
+```
+A ♦ 2 ♦ 3 ♦ 4 ♦ 5 ♦ 6 ♦ 7 ♦ 8 ♦ 9 ♦ 10 ♦ J ♦ Q ♦ K ♦ 
+A ♥ 2 ♥ 3 ♥ 4 ♥ 5 ♥ 6 ♥ 7 ♥ 8 ♥ 9 ♥ 10 ♥ J ♥ Q ♥ K ♥ 
+A ♠ 2 ♠ 3 ♠ 4 ♠ 5 ♠ 6 ♠ 7 ♠ 8 ♠ 9 ♠ 10 ♠ J ♠ Q ♠ K ♠ 
+A ♣ 2 ♣ 3 ♣ 4 ♣ 5 ♣ 6 ♣ 7 ♣ 8 ♣ 9 ♣ 10 ♣ J ♣ Q ♣ K ♣ 
+``` 
 
 Want an extra challenge (make sure this is **after** getting all of the above working)?
 
 ## **HACKER CHALLENGE!** 
-![barba gordon at computer in wheel chair with background poster "roll with pride"](oraclecode.jpeg)
-> Barbara Gordon (Oracle) in The Oracle Code graphic novel by Marieke Nijkamp and Manuel Prietano (image from TheMarySue.com)
 
 Use the ASCII art in `Card` class methods to get the following working (hint: you'll want to use the `getPrintCard` method 😃)
-![hacker challenge screenshot](hackerChallenge.png)
+```
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+|♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| 
+|  A  | |  2  | |  3  | |  4  | |  5  | |  6  | |  7  | |  8  | |  9  | | 10  | |  J  | |  Q  | |  K  | 
+|♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| |♦   ♦| 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+|♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| 
+|  A  | |  2  | |  3  | |  4  | |  5  | |  6  | |  7  | |  8  | |  9  | | 10  | |  J  | |  Q  | |  K  | 
+|♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| |♥   ♥| 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+|♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| 
+|  A  | |  2  | |  3  | |  4  | |  5  | |  6  | |  7  | |  8  | |  9  | | 10  | |  J  | |  Q  | |  K  | 
+|♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| |♠   ♠| 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+|♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| 
+|  A  | |  2  | |  3  | |  4  | |  5  | |  6  | |  7  | |  8  | |  9  | | 10  | |  J  | |  Q  | |  K  | 
+|♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| |♣   ♣| 
+------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- ------- 
+```
  
 
 **_Good luck!!!_** 
